@@ -5,10 +5,11 @@
 ## Kubernetes
 
 * [使用 informer watch deployed pods](kubernetes/how-to-use-informer.md)
-* [Untitled](kubernetes/untitled.md)
+* [如何写一个 operator](kubernetes/operator.md)
 
 ## Golang
 
+* [goroutine channel 间通信](golang/goroutine-channel-jian-tong-xin.md)
 * [gin context](golang/gin-context.md)
 
 ## Linux Sys
