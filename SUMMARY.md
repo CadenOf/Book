@@ -14,5 +14,6 @@
 
 ## Linux Sys
 
+* [Linux umount target is busy 挂盘卸载问题](linux-sys/linux-umount-target-is-busy-gua-pan-xie-zai-wen-ti.md)
 * [linux 系统指标解析](linux-sys/linux-xi-tong-zhi-biao-jie-xi.md)
 
