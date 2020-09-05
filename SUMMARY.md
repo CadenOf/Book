@@ -15,6 +15,7 @@
 ## Linux Sys
 
 * [Linux 常见问题集](linux-sys/linux-chang-jian-wen-ti-ji/README.md)
+  * [Centos 根分区的扩容](linux-sys/linux-chang-jian-wen-ti-ji/centos-gen-fen-qu-de-kuo-rong.md)
   * [linux inode 索引节点爆满问题](linux-sys/linux-chang-jian-wen-ti-ji/linux-inode-suo-yin-jie-dian-bao-man-wen-ti.md)
   * [Linux umount target is busy 挂盘卸载问题](linux-sys/linux-chang-jian-wen-ti-ji/linux-umount-target-is-busy-gua-pan-xie-zai-wen-ti.md)
 * [linux 系统指标解析](linux-sys/linux-xi-tong-zhi-biao-jie-xi.md)
