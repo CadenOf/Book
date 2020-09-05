@@ -4,6 +4,7 @@
 
 ## Kubernetes
 
+* [Kubernetes 常见问题集](kubernetes/kubernetes-chang-jian-wen-ti-ji.md)
 * [使用 informer watch deployed pods](kubernetes/how-to-use-informer.md)
 * [如何写一个 operator](kubernetes/operator.md)
 
