@@ -15,6 +15,8 @@
 
 ## Linux Sys
 
+* [pypi server 搭建](linux-sys/pypi-server-da-jian.md)
+* [infras 服务部署](linux-sys/infras-fu-wu-bu-shu.md)
 * [Linux 常见问题集](linux-sys/linux-chang-jian-wen-ti-ji/README.md)
   * [Centos 根分区的扩容](linux-sys/linux-chang-jian-wen-ti-ji/centos-gen-fen-qu-de-kuo-rong.md)
   * [linux inode 索引节点爆满问题](linux-sys/linux-chang-jian-wen-ti-ji/linux-inode-suo-yin-jie-dian-bao-man-wen-ti.md)
