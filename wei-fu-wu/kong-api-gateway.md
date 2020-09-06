@@ -186,7 +186,7 @@ pantsel/konga
 ![](../.gitbook/assets/image%20%284%29.png)
 
 {% hint style="danger" %}
-需要特别注意的是，在 Hosts, Paths, Methus 填写时要“回车“一下，输入的内容才会添加上去，不然会出现上图中的红色报错
+需要特别注意的是，在 Hosts, Paths, Methods 填写时要“回车“一下，输入的内容才会添加上去，不然会出现上图中的红色报错
 {% endhint %}
 
 测试访问成功
