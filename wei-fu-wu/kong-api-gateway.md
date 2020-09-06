@@ -14,6 +14,36 @@ Kong 可以充当微服务请求的网关（或 sidecar），同时通过插件�
 
 
 
+## Kong 的特性
+
+* 云原生\(**Cloud-Native**\)：Kong 可以在 Kubernetes 或物理环境上运行；
+* 动态**负载平衡**\(**Dynamic Load Balancing**\)：跨多个上游服务的负载平衡业务。
+* 基于哈希的负载平衡\(**Hash-based Load Balancing**\)：一致的散列/粘性会话的负载平衡。
+* 断路器\(**Circuit-Breaker**\)：智能跟踪不健康的上游服务。
+* 健康检查\(**Health Checks**\)：主动和被动监控您的上游服务。
+* **服务发现**\(**Service Discovery**\)：解决如 Consul 等第三方 DNS 解析器的 SRV 记录。
+* 无服务器\(**Serverless**\)：从 Kong 中直接调用和保证 AWS 或 OpenWhisk 函数安全。
+* **WebSockets**：通过 **WebSockets** 与上游服务进行通信。
+* OAuth2.0：轻松的向 API 中添加 OAuth2.0 认证。
+* **日志记录**\(**Logging**\)：通过 HTTP、TCP、UDP 记录请求或者相应的日志，存储在磁盘中。
+* **安全**\(**Security**\)：ACL，Bot 检测，IPs 白名单/黑名单等。
+* 系统日志\(**Syslog**\)：记录信息到系统日志。
+* SSL：为基础服务或 API 设置特定的 SSL 证书。
+* **监视**\(**Monitoring\)**：能够实时对关键负载和性能指标进行监控。
+* 转发代理\(**Forward Proxy**\)：使端口连接到中间透明的 HTTP 代理。
+* **认证**\(**Authentications**\)：支持 HMAC，JWT 和 BASIC 方式进行认证等等。
+* **速率限制**\(**Rate-limiting**\)：基于多个变量的阻塞和节流请求。
+* 转换\(**Transformations**\)：添加、删除或操作 HTTP 请求和响应。
+* **缓存**\(**Caching**\)：在代理层进行缓存和服务响应。
+* 命令行工具\(CLI\)：能够通过命令行控制 Kong 的集群。
+* REST API：可以通过 REST API 灵活的操作 Kong。
+* GEO复制：在不同的区域，配置总是最新的。
+* **故障检测与恢**复\(**Failure Detection & Recovery**\)：如果 Cassandra 节点失效，Kong 并不会受影响。
+* 群集\(**Clustering**\)：所有的 Kong 节点会自动加入群集，并更新各个节点上的配置。
+* 可扩展性\(**Scalability**\)：通过添加节点，实现水平缩放。
+* 性能\(**Performance**\)：通过缩放和使用 Nigix，Kong 能够轻松处理负载。
+* 插件\(**Plugins**\)：基于插件的可扩展体系结构，能够方便的向 Kong 和 API 添加功能。
+
 ## 使用 docker 方式部署 kong
 
 #### 部署 kong-database postgres
