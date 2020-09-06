@@ -117,15 +117,79 @@ $ docker exec -it kong kong reload
 
 
 
+## 使用 konga dashboard
+
+初始化 konga 数据库 （使用 kong server 的 postgres 数据库）
+
+```text
+$ docker run --link kong-database:kong-database \
+             --rm  pantsel/konga:latest \
+             -c prepare \
+             -a postgres \
+             -u postgres://kong:passwd123@kong-database:5432/konga
+```
+
+```text
+
+$ docker run -p 1337:1337 
+          --network {{kong-network}} \ // optional
+          -e "TOKEN_SECRET={{somerandomstring}}" \
+          -e "DB_ADAPTER=the-name-of-the-adapter" \ // 'mongo','postgres','sqlserver'  or 'mysql'
+          -e "DB_HOST=your-db-hostname" \
+          -e "DB_PORT=your-db-port" \ // Defaults to the default db port
+          -e "DB_USER=your-db-user" \ // Omit if not relevant
+          -e "DB_PASSWORD=your-db-password" \ // Omit if not relevant
+          -e "DB_DATABASE=your-db-name" \ // Defaults to 'konga_database'
+          -e "DB_PG_SCHEMA=my-schema"\ // Optionally define a schema when integrating with prostgres
+          -e "NODE_ENV=production" \ // or 'development' | defaults to 'development'
+          --name konga \
+          pantsel/konga
 
 
+# customize      
 
+$ docker run -d --name konga-client \
+--link kong-database:kong-database \
+-p 1337:1337 \
+-e "DB_ADAPTER=postgres" \
+-e "DB_HOST=kong-database" \
+-e "DB_PORT=5432" \
+-e "DB_USER=kong" \
+-e "DB_PASSWORD=passwd123" \
+-e "DB_DATABASE=konga" \
+-e "NODE_ENV=production" \
+pantsel/konga
+```
 
+安装完成，通过 http://{your\_ip}:1337 即可访问，注册用户后登录（下图 dashboard 默认为空，成功添加 kong 服务后才会显示）
 
+![konga dashboard](../.gitbook/assets/image%20%2810%29.png)
 
+添加一个 kong-server connection
 
+![](../.gitbook/assets/image%20%2811%29.png)
 
+![add connection](../.gitbook/assets/image%20%286%29.png)
 
+![Active Connection](../.gitbook/assets/image%20%282%29.png)
 
+![](../.gitbook/assets/image%20%283%29.png)
 
+添加 service（添加 baidu.com 为例测试）
+
+![add service](../.gitbook/assets/image%20%289%29.png)
+
+在新加的 service 下添加 route
+
+![add route](../.gitbook/assets/image%20%285%29.png)
+
+![](../.gitbook/assets/image%20%284%29.png)
+
+{% hint style="danger" %}
+需要特别注意的是，在 Hosts, Paths, Methus 填写时要“回车“一下，输入的内容才会添加上去，不然会出现上图中的红色报错
+{% endhint %}
+
+测试访问成功
+
+![](../.gitbook/assets/image%20%288%29.png)
 
