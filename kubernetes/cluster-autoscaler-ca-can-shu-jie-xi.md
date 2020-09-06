@@ -1,0 +1,106 @@
+# cluster autoscaler （CA）参数解析
+
+```text
+Usage of ./cluster-autoscaler:
+      --add-dir-header                若为 true, 则将文件路径添加到 header
+      --address string                暴露 prometheus metrics 的地址，默认是（":8085"）
+      --alsologtostderr               记录标准错误日志
+      --aws-use-static-instance-list  CA 是否需要获取允许中的实例类型或其资源列表，仅在 AWS 中适用
+      --balance-similar-node-groups   检测相似的 node group 并自动平衡它们之间 node 的数量
+      --cloud-config string           公有云供应商的配置文件，留空字符串表示无配置文件
+      --cloud-provider string         公有云供应商，支持的有[aws,azure,gce,alicloud,baiducloud,magnum,digitalocean],默认是 "gce"
+      --cloud-provider-gce-l7lb-src-cidrs cidrs    CIDRs opened in GCE firewall for L7 LB traffic proxy & health checks (default 130.211.0.0/22,35.191.0.0/16)
+      --cloud-provider-gce-lb-src-cidrs cidrs      CIDRs opened in GCE firewall for L4 LB traffic proxy & health checks (default 130.211.0.0/22,209.85.152.0/22,209.85.204.0/22,35.191.0.0/16)
+      --cluster-name string           自动扩缩容集群名称
+      --cores-total string            集群中可扩容最少及最多的 cores，格式为 <min>:<max> (默认为 "0:320000”), 超过这个范围 CA 将不会动作
+      --estimator string              扩容时需要的评估类型，可用为[binpacking,oldbinpacking] (默认 "binpacking")
+      --expander string               扩容时需要的 node group 扩展器类型，支持 [random,most-pods,least-waste,price,priority] (默认 "random")                                    
+      --expendable-pods-priority-cutoff int                                Pods with priority below cutoff will be expendable. They can be killed without any consideration during scale down and they don't cause scale up. Pods with null priority (PodPriority disabled) are non expendable. (default -10)
+      --filter-out-schedulable-pods-uses-packing                           Filtering out schedulable pods before CA scale up by trying to pack the schedulable pods on free capacity on existing nodes.Setting it to false employs a more lenient filtering approach that does not try to pack the pods on the nodes.Pods with nominatedNodeName set are always filtered out. (default true)
+      --gpu-total MultiStringFlag     可扩容的不同类型 GPU 最小最大值，格式为 <gpu_type>:<min>:<max>，目前仅在 GKE 中可用
+      --ignore-daemonsets-utilization   当缩容计算资源使用率时，CA 是否需要忽略 daemonset pod
+      --ignore-mirror-pods-utilization  当缩容计算资源使用率时，CA 是否需要忽略 mirror pod
+      --ignore-taint MultiStringFlag    在 node templates 中指定忽略的 node taint，默认为 []
+      --kubeconfig string               kubeconfig 文件的路径
+      --kubernetes string               kubernetes master 的位置，默认为空
+      --leader-elect                    高可用默认下开启 leader 选举，默认为 true
+      --leader-elect-lease-duration duration   候选者在观察到 leader 更新后将等待直到试图获得 leader 但未更新的领导者职位的等待时间。这实际上是 leader 在被另一位候选人替代之前可以停止的最大持续时间。仅在启用了 leader 选举的情况下才适用(默认 15s) 
+      --leader-elect-renew-deadline duration                               The interval between attempts by the acting master to renew a leadership slot before it stops leading. This must be less than or equal to the lease duration. This is only applicable if leader election is enabled. (default 10s)
+      --leader-elect-resource-lock endpoints                               The type of resource object that is used for locking during leader election. Supported options are endpoints (default) and `configmaps`. (default "leases")
+      --leader-elect-resource-name string                                  The name of resource object that is used for locking during leader election.
+      --leader-elect-resource-namespace string                             The namespace of resource object that is used for locking during leader election.
+      --leader-elect-retry-period duration                                 The duration the clients should wait between attempting acquisition and renewal of a leadership. This is only applicable if leader election is enabled. (default 2s)
+      --log-backtrace-at traceLocation                                     when logging hits line file:N, emit a stack trace (default :0)
+      --log-dir string                       若非空，则将 log 文件写在改路径下
+      --log-file string                      若非空，则使用该日志文件记录日志
+      --log-file-max-size uint               设置日志文件的最大值，单位为 MB，若为 0 则表示无限制，默认为 1800
+      —logtostderr                           使用标准错误输出代替日志文件，默认为 true
+      --max-autoprovisioned-node-group-count int  集群中自动扩所容 group 的最大数量，默认为 15
+      --max-bulk-soft-taint-count int                                      Maximum number of nodes that can be tainted/untainted PreferNoSchedule at the same time. Set to 0 to turn off such tainting. (default 10)
+      --max-bulk-soft-taint-time duration                                  Maximum duration of tainting/untainting nodes as PreferNoSchedule at the same time. (default 3s)
+      --max-empty-bulk-delete int            同一时间可以被检测的空置的 node 最大数量，默认为 10
+      --max-failing-time duration                                          Maximum time from last recorded successful autoscaler run before automatic restart (default 15m0s)
+      --max-graceful-termination-sec int     CA 要缩容时等待 pod terminate 的最长秒数，默认为 600
+      --max-inactivity duration                                            Maximum time from last recorded autoscaler activity before automatic restart (default 10m0s)
+      --max-node-provision-time duration     CA 等待 node 提供的最大时间，默认 15m0s
+      --max-nodes-total int                  所有 node groups 的最大 node 数量，当扩容超过这个数量 CA 将不再扩容
+      --max-total-unready-percentage float   集群中 unready nodes 的最大百分数，当超过这个百分数 CA 将停止工作，默认为 45
+      --memory-total string                  集群中可扩容的最小和最大 GB 内存，超过这个范围 CA 将不会继续扩容，格式为 <min>:<max>, 默认为 "0:6400000"                             
+      --min-replica-count int                                              Minimum number or replicas that a replica set or replication controller should have to allow their pods deletion in scale down
+      --namespace string                      CA 在 k8s 中运行的 namespace，默认为 "kube-system"
+      --new-pod-scale-up-delay duration                                    Pods less than this old will not be considered for scale-up. (default 0s)
+      --node-autoprovisioning-enabled         当需要时 CA 是否会自动提供 node group
+      --node-deletion-delay-timeout duration  CA 删除 node 前移除 delay-deletion.cluster-autoscaler.kubernetes.io/ annotations 等待的最大时间，默认为 2m0s                            
+      --node-group-auto-discovery <name of discoverer>:[<key>[=<value>]]   One or more definition(s) of node group auto-discovery. A definition is expressed <name of discoverer>:[<key>[=<value>]]. The `aws` and `gce` cloud providers are currently supported. AWS matches by ASG tags, e.g. `asg:tag=tagKey,anotherTagKey`. GCE matches by IG name prefix, and requires you to specify min and max nodes per IG, e.g. `mig:namePrefix=pfx,min=0,max=10` Can be used multiple times. (default [])
+      --nodes MultiStringFlag                 以一定的格式设置 node group 的最小，最大及其他配置的值以被云供应商识别，格式为 <min>:<max>:<other…>,默认为 []                       
+      --ok-total-unready-count int            允许的最大 unready nodes，该配置优先于 --max-total-unready-percentage，默认值为 3
+      —regional                               集群的地域性
+      --scale-down-candidates-pool-min-count int    当先前迭代中的某些候选对象不再有效时，被视为缩减的额外非空候选者的最小节点数。在计算其他候选者的池大小时，我们采用max（#nodes * scale-down-candidates-pool-ratio，scale -down-candidates-pool-min-count）。默认为 50
+      --scale-down-candidates-pool-ratio float      当先前迭代中的某些候选节点不再有效时，被视为缩减的额外非空候选节点的比例。较低的值表示更好的CA响应能力，但可能会降低缩放延迟。较高的值会影响大型集群的CA性能（数百个）设置为1.0以关闭此启发式搜索-CA会将所有节点作为其他候选节点。
+      --scale-down-delay-after-add duration         node 扩容后多长时间恢复缩容评估，默认为 10m0s
+      --scale-down-delay-after-delete duration      node 缩容后等待多长时间恢复检测，默认为扫描间隔 0s
+      --scale-down-delay-after-failure duration     缩容评估失败后多长时间恢复重新评估，默认为 3m0s
+      --scale-down-enabled                          是否开启 CA 缩容，默认为 true
+      --scale-down-gpu-utilization-threshold float  节点上运行的所有 Pod 的 gpu 请求总数除以节点的可分配资源，在该值以下可以考虑按比例缩小节点。利用率计算只关心加速器节点的gpu资源。 CPU和内存利用率将被忽略，默认为 0.5
+      --scale-down-non-empty-candidates-count int  一次迭代中考虑作为减少消耗的候选对象的非空节点的最大数量。设置较低的值则 CA 响应性更好，但缩小延迟可能会更慢;较高的值会影响大型群集（数百个节点）的 CA 性能。设置为非正数值以关闭此启发式方法- CA 不会限制它考虑的节点数。默认为 30
+      --scale-down-unneeded-time duration       在一台 node 可以被缩容前，需要多长时间这台台 node 会被标记为 unneeded，默认为 10m0s
+      --scale-down-unready-time duration        当一台 unready node 可以被缩掉前，需要多长时间它被标记为 unneeded 的时间，默认为 20m0s
+      --scale-down-utilization-threshold float  节点上运行的所有 pod 的 cpu 或内存之和除以节点对应的可分配资源，在该值以下可以考虑按比例缩容节点，默认为 0.5                         
+      --scale-up-from-zero                      当 read 的 node 为 0 时，CA 是否需要扩容，默认为 true
+      --scan-interval duration                  CA 进行弹性扩缩容重新检测评估的频率，默认为 10s
+      --skip-headers                            若为 true 则 在 log message 中不会有 healder 前缀
+      --skip-log-headers                        若为 true 则 当打开 log 文件时，headers 为空
+      --skip-nodes-with-local-storage           若为 true 则 CA 将不会 delete 具有 local storage pods 的 node，默认为 true
+      --skip-nodes-with-system-pods             若为 true 则 CA 将不会 delete 有 kube-system pods（除了 daemonset or mirror pods 之外） 的 nodes，默认为 true
+      --stderrthreshold severity                                           logs at or above this threshold go to stderr (default 2)
+      --test.bench regexp                                                  run only benchmarks matching regexp
+      --test.benchmem                                                      print memory allocations for benchmarks
+      --test.benchtime d                                                   run each benchmark for duration d (default 1s)
+      --test.blockprofile file                                             write a goroutine blocking profile to file
+      --test.blockprofilerate rate                                         set blocking profile rate (see runtime.SetBlockProfileRate) (default 1)
+      --test.count n                                                       run tests and benchmarks n times (default 1)
+      --test.coverprofile file                                             write a coverage profile to file
+      --test.cpu list                                                      comma-separated list of cpu counts to run each test with
+      --test.cpuprofile file                                               write a cpu profile to file
+      --test.failfast                                                      do not start new tests after the first test failure
+      --test.list regexp                                                   list tests, examples, and benchmarks matching regexp then exit
+      --test.memprofile file                                               write an allocation profile to file
+      --test.memprofilerate rate                                           set memory allocation profiling rate (see runtime.MemProfileRate)
+      --test.mutexprofile string                                           write a mutex contention profile to the named file after execution
+      --test.mutexprofilefraction int                                      if >= 0, calls runtime.SetMutexProfileFraction() (default 1)
+      --test.outputdir dir                                                 write profiles to dir
+      --test.parallel n                                                    run at most n tests in parallel (default 4)
+      --test.run regexp                                                    run only tests and examples matching regexp
+      --test.short                                                         run smaller test suite to save time
+      --test.testlogfile file                                              write test action log to file (for use only by cmd/go)
+      --test.timeout d                                                     panic test binary after duration d (default 0, timeout disabled) (default 0s)
+      --test.trace file                                                    write an execution trace to file
+      --test.v                                                             verbose: print additional output
+      --unremovable-node-recheck-timeout duration  不能被移除的 node 检测超时时间，默认为 5m0s
+  -v, --v Level                                    log 的等级数字
+      --vmodule moduleSpec                                                 comma-separated list of pattern=N settings for file-filtered logging
+      --write-status-configmap                     CA 是否将状态信息写入 configmap ，默认为 true
+pflag: help requested
+
+```
+
