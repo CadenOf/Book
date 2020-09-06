@@ -5,6 +5,7 @@
 ## Kubernetes
 
 * [Kubernetes 常见问题集](kubernetes/kubernetes-chang-jian-wen-ti-ji/README.md)
+  * [etcd miantain 历史数据压缩碎片清理](kubernetes/kubernetes-chang-jian-wen-ti-ji/etcd-miantain-li-shi-shu-ju-ya-suo-sui-pian-qing-li.md)
   * [how to delete terminating namespace?](kubernetes/kubernetes-chang-jian-wen-ti-ji/how-to-delete-terminating-namespace.md)
 * [cluster autoscaler （CA）参数解析](kubernetes/cluster-autoscaler-ca-can-shu-jie-xi.md)
 * [使用 informer watch deployed pods](kubernetes/how-to-use-informer.md)
@@ -17,8 +18,8 @@
 
 ## Linux Sys
 
-* [部署 sonarqube 及使用](linux-sys/bu-shu-sonarqube-ji-shi-yong.md)
 * [infras 服务部署](linux-sys/infras-fu-wu-bu-shu/README.md)
+  * [部署 sonarqube 及使用](linux-sys/infras-fu-wu-bu-shu/bu-shu-sonarqube-ji-shi-yong.md)
   * [搭建高可用 mongodb 集群-副本集](linux-sys/infras-fu-wu-bu-shu/da-jian-gao-ke-yong-mongodb-ji-qun-fu-ben-ji.md)
   * [pypi server 搭建](linux-sys/infras-fu-wu-bu-shu/pypi-server-da-jian.md)
 * [Linux 常见问题集](linux-sys/linux-chang-jian-wen-ti-ji/README.md)

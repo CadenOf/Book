@@ -163,27 +163,27 @@ pantsel/konga
 
 安装完成，通过 http://{your\_ip}:1337 即可访问，注册用户后登录（下图 dashboard 默认为空，成功添加 kong 服务后才会显示）
 
-![konga dashboard](../.gitbook/assets/image%20%2810%29.png)
+![konga dashboard](../.gitbook/assets/image%20%2812%29.png)
 
 添加一个 kong-server connection
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
-![add connection](../.gitbook/assets/image%20%286%29.png)
+![add connection](../.gitbook/assets/image%20%288%29.png)
 
-![Active Connection](../.gitbook/assets/image%20%282%29.png)
+![Active Connection](../.gitbook/assets/image%20%283%29.png)
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 添加 service（添加 baidu.com 为例测试）
 
-![add service](../.gitbook/assets/image%20%289%29.png)
+![add service](../.gitbook/assets/image%20%2811%29.png)
 
 在新加的 service 下添加 route
 
-![add route](../.gitbook/assets/image%20%285%29.png)
+![add route](../.gitbook/assets/image%20%287%29.png)
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 {% hint style="danger" %}
 需要特别注意的是，在 Hosts, Paths, Methods 填写时要“回车“一下，输入的内容才会添加上去，不然会出现上图中的红色报错
@@ -191,5 +191,5 @@ pantsel/konga
 
 测试访问成功
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
