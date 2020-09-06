@@ -18,6 +18,7 @@
 ## Linux Sys
 
 * [infras 服务部署](linux-sys/infras-fu-wu-bu-shu/README.md)
+  * [搭建高可用 mongodb 集群-副本集](linux-sys/infras-fu-wu-bu-shu/da-jian-gao-ke-yong-mongodb-ji-qun-fu-ben-ji.md)
   * [pypi server 搭建](linux-sys/infras-fu-wu-bu-shu/pypi-server-da-jian.md)
 * [Linux 常见问题集](linux-sys/linux-chang-jian-wen-ti-ji/README.md)
   * [Centos 根分区的扩容](linux-sys/linux-chang-jian-wen-ti-ji/centos-gen-fen-qu-de-kuo-rong.md)
