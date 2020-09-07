@@ -20,6 +20,7 @@
 ## Linux Sys
 
 * [infras 服务部署](linux-sys/infras-fu-wu-bu-shu/README.md)
+  * [搭建 phabricator 项目/代码管理平台](linux-sys/infras-fu-wu-bu-shu/da-jian-phabricator-xiang-mu-dai-ma-guan-li-ping-tai.md)
   * [部署 sonarqube 及使用](linux-sys/infras-fu-wu-bu-shu/bu-shu-sonarqube-ji-shi-yong.md)
   * [搭建高可用 mongodb 集群-副本集](linux-sys/infras-fu-wu-bu-shu/da-jian-gao-ke-yong-mongodb-ji-qun-fu-ben-ji.md)
   * [pypi server 搭建](linux-sys/infras-fu-wu-bu-shu/pypi-server-da-jian.md)
