@@ -1,11 +1,11 @@
 # golang 字符串大小写转换
 
-1. **func ToLower\(s string\) string**  将字符串s转换成小写返回
-2. **func ToUpper\(s string\) string** 将字符串s转换成大写返回
-3. **func Title\(s string\) string** 将字符串s每个单词首字母大写返回
-4. **func ToTitle\(s string\) string** 将字符串s转换成大写返回
-5. **func ToLowerSpecial\(\_case unicode.SpecialCase, s string\) string** 将字符串s中所有字符按\_case指定的映射转换成小写返回
-6. **func ToUpperSpecial\(\_case unicode.SpecialCase, s string\) string** 将字符串s中所有字符按\_case指定的映射转换成大写返回
+1. **func ToLower\(s string\) string**  将字符串s转换成小写返回 
+2. **func ToUpper\(s string\) string** 将字符串s转换成大写返回 
+3. **func Title\(s string\) string** 将字符串s每个单词首字母大写返回 
+4. **func ToTitle\(s string\) string** 将字符串s转换成大写返回 
+5. **func ToLowerSpecial\(\_case unicode.SpecialCase, s string\) string** 将字符串s中所有字符按\_case指定的映射转换成小写返回 
+6. **func ToUpperSpecial\(\_case unicode.SpecialCase, s string\) string** 将字符串s中所有字符按\_case指定的映射转换成大写返回 
 7. **func ToTitleSpecial\(\_case unicode.SpecialCase, s string\) string** 将字符串s中所有字符按\_case指定的映射转换成大写返回
 
 ```text
