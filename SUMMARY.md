@@ -14,8 +14,8 @@
 
 ## Golang
 
-* [golang 小方法实现](golang/golang-xiao-fang-fa-shi-xian.md)
-* [golang 字符串大小写转换](golang/golang-zi-fu-chuan-da-xiao-xie-zhuan-huan.md)
+* [golang 小方法实现](golang/golang-xiao-fang-fa-shi-xian/README.md)
+  * [golang 字符串大小写转换](golang/golang-xiao-fang-fa-shi-xian/golang-zi-fu-chuan-da-xiao-xie-zhuan-huan.md)
 * [goroutine channel 间通信](golang/goroutine-channel-jian-tong-xin.md)
 * [gin context](golang/gin-context.md)
 
