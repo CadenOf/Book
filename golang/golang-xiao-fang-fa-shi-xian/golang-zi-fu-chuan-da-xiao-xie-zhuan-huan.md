@@ -21,16 +21,16 @@ import (
 func main() {
 
     // 将字符串s转换成小写返回
-    fmt.Println(strings.ToLower("string to lower"))
+    fmt.Println(strings.ToLower("string to lower ABC"))
 
     //将字符串s转换成大写返回
-    fmt.Println(strings.ToUpper("string to upper"))
+    fmt.Println(strings.ToUpper("string to upper ABC"))
 
     //将字符串s每个单词首字母大写返回
-    fmt.Println(strings.Title("string title"))
+    fmt.Println(strings.Title("string title ABC"))
 
     //将字符串s每个字母都转换成大写返回
-    fmt.Println(strings.ToTitle("string to titile"))
+    fmt.Println(strings.ToTitle("string to titile ABC"))
 
 	//将字符串s中所有字符按_case指定的映射转换成小写返回
 	var _MyCase = unicode.SpecialCase{
@@ -53,10 +53,10 @@ func main() {
 
 Result:
 
-string to lower
-STRING TO UPPER
-String Title
-STRING TO TITILE
+string to lower abc
+STRING TO UPPER ABC
+String Title ABC
+STRING TO TITILE ABC
 string ，。- ａｂｃ tolowerspecial
 STRING ，。- ＡＢＣ TOUPPERSPECIAL
 STRING ,.- ABC TOTITLESPECIAL
