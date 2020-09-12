@@ -23,6 +23,7 @@
 ## Linux Sys
 
 * [infras 服务部署](linux-sys/infras-fu-wu-bu-shu/README.md)
+  * [如何编译指定版本的 kernel 成 RPM 安装包](linux-sys/infras-fu-wu-bu-shu/ru-he-bian-yi-zhi-ding-ban-ben-de-kernel-cheng-rpm-an-zhuang-bao.md)
   * [搭建 phabricator 项目/代码管理平台](linux-sys/infras-fu-wu-bu-shu/da-jian-phabricator-xiang-mu-dai-ma-guan-li-ping-tai.md)
   * [部署 sonarqube 及使用](linux-sys/infras-fu-wu-bu-shu/bu-shu-sonarqube-ji-shi-yong.md)
   * [搭建高可用 mongodb 集群-副本集](linux-sys/infras-fu-wu-bu-shu/da-jian-gao-ke-yong-mongodb-ji-qun-fu-ben-ji.md)
