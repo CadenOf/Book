@@ -4,6 +4,7 @@
 
 ## Kubernetes
 
+* [Kubernetes 角色访问控制 RBAC](kubernetes/kubernetes-jiao-se-fang-wen-kong-zhi-rbac.md)
 * [kubernetes 集群中 cilium 的实践及其网络通信解析](kubernetes/kubernetes-ji-qun-zhong-cilium-de-shi-jian-ji-qi-wang-luo-tong-xin-jie-xi.md)
 * [Kubernetes 常见问题集](kubernetes/kubernetes-chang-jian-wen-ti-ji/README.md)
   * [etcd miantain 历史数据压缩碎片清理](kubernetes/kubernetes-chang-jian-wen-ti-ji/etcd-miantain-li-shi-shu-ju-ya-suo-sui-pian-qing-li.md)
