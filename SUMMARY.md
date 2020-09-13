@@ -15,8 +15,8 @@
 
 ## Golang
 
-* [golang 常用 pkg 介绍](golang/golang-chang-yong-pkg-jie-shao.md)
-* [sirupsen/logrus 日志管理](golang/sirupsenlogrus-ri-zhi-guan-li.md)
+* [golang 常用 pkg 介绍](golang/golang-chang-yong-pkg-jie-shao/README.md)
+  * [sirupsen/logrus 日志管理](golang/golang-chang-yong-pkg-jie-shao/sirupsenlogrus-ri-zhi-guan-li.md)
 * [golang 常用小方法实现](golang/golang-xiao-fang-fa-shi-xian/README.md)
   * [mess collection](golang/golang-xiao-fang-fa-shi-xian/mess-collection.md)
   * [golang 字符串大小写转换](golang/golang-xiao-fang-fa-shi-xian/golang-zi-fu-chuan-da-xiao-xie-zhuan-huan.md)
